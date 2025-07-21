@@ -16,7 +16,7 @@ const translations = {
         
         // Result Interface
         resultTitle: "당신의 결과",
-        shareBtnText: "결과 공유하기",
+        shareBtnText: "사이트 공유하기",
         retakeBtnText: "다시 진단하기",
         loadingText: "결과를 분석중입니다...",
         
@@ -56,7 +56,7 @@ const translations = {
         
         // Result Interface
         resultTitle: "Your Result",
-        shareBtnText: "Share Result",
+        shareBtnText: "Share Site",
         retakeBtnText: "Retake Quiz",
         loadingText: "Analyzing your result...",
         
@@ -96,7 +96,7 @@ const translations = {
         
         // Result Interface
         resultTitle: "あなたの結果",
-        shareBtnText: "結果をシェア",
+        shareBtnText: "サイトをシェア",
         retakeBtnText: "再診断",
         loadingText: "結果を分析中です...",
         
@@ -136,7 +136,7 @@ const translations = {
         
         // Result Interface
         resultTitle: "你的结果",
-        shareBtnText: "分享结果",
+        shareBtnText: "分享网站",
         retakeBtnText: "重新诊断",
         loadingText: "正在分析结果...",
         
