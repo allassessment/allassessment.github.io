@@ -295,26 +295,31 @@ function resetQuiz() {
     window.scrollTo(0, 0);
 }
 
-// Share result on social media
+// Share site on social media
 function shareResult() {
-    if (!window.currentResult) return;
-    
-    const character = window.currentResult.character;
-    const percentage = window.currentResult.percentage;
-    const shareText = getTranslation('shareText', currentLanguage)
-        .replace('{character}', character.name);
     const url = window.location.href;
-    
+    const shareText = {
+        ko: '종합진단센터에서 다양한 무료 진단을 받아보세요!',
+        en: 'Try various free assessments at Total Diagnosis Center!',
+        ja: '総合診断センターで無料診断を体験しよう！',
+        zh: '在综合诊断中心体验各种免费测试！'
+    }[currentLanguage] || 'Try various free assessments at Total Diagnosis Center!';
+
     // Create share URLs
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(shareText)}`;
-    
+
     // Show share options
     const shareModal = document.createElement('div');
     shareModal.className = 'share-modal';
     shareModal.innerHTML = `
         <div class="share-modal-content">
-            <h3>${getTranslation('shareResult', currentLanguage) || '결과 공유하기'}</h3>
+            <h3>${{
+                ko: '사이트 공유하기',
+                en: 'Share Site',
+                ja: 'サイトをシェア',
+                zh: '分享网站'
+            }[currentLanguage] || 'Share Site'}</h3>
             <div class="share-buttons">
                 <button onclick="window.open('${twitterUrl}', '_blank')" class="share-btn twitter">
                     <i class="fab fa-twitter"></i> Twitter
@@ -323,7 +328,12 @@ function shareResult() {
                     <i class="fab fa-facebook"></i> Facebook
                 </button>
                 <button onclick="copyToClipboard('${url}')" class="share-btn copy">
-                    <i class="fas fa-copy"></i> ${getTranslation('copyLink', currentLanguage) || '링크 복사'}
+                    <i class="fas fa-copy"></i> ${{
+                        ko: '링크 복사',
+                        en: 'Copy Link',
+                        ja: 'リンクをコピー',
+                        zh: '复制链接'
+                    }[currentLanguage] || 'Copy Link'}
                 </button>
             </div>
             <button onclick="closeShareModal()" class="close-btn">
@@ -331,9 +341,9 @@ function shareResult() {
             </button>
         </div>
     `;
-    
+
     document.body.appendChild(shareModal);
-    
+
     // Add styles for share modal
     if (!document.getElementById('shareModalStyles')) {
         const styles = document.createElement('style');
