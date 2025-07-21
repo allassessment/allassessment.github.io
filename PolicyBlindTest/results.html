@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정치 성향 진단 결과 - 블라인드 정책 선호 확인지</title>
+    <meta name="description" content="정책 선호도 분석을 통한 정치 성향 진단 결과를 확인하세요.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8881525957265363" crossorigin="anonymous"></script>
+    
+    <!-- Social sharing meta tags -->
+    <meta property="og:title" content="나의 정치 성향 진단 결과">
+    <meta property="og:description" content="블라인드 정책 선호 테스트 결과를 확인해보세요.">
+    <meta property="og:url" content="https://assessment.qhop.org/blindpolicy/results.html">
+    <meta property="og:type" content="website">
+</head>
+<body class="results-page">
+    <header class="results-header">
+        <div class="container">
+            <h1>진단 결과</h1>
+            <p>30개 정책 질문 분석 완료</p>
+        </div>
+    </header>
+
+    <main class="results-content">
+        <div class="container">
+            <!-- Google Ads - Top Banner (결과 페이지 상단) -->
+            <div class="ad-container ad-top">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8881525957265363"
+                     data-ad-slot="2222222222"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="results-main">
+                <!-- Primary Result -->
+                <section class="primary-result">
+                    <div class="result-card main-result">
+                        <div class="result-header">
+                            <h2>당신과 가장 일치하는 정당</h2>
+                        </div>
+                        <div class="party-result" id="primaryParty">
+                            <div class="party-info">
+                                <div class="party-name" id="primaryPartyName">결과 로딩 중...</div>
+                                <div class="party-match" id="primaryPartyMatch">--%</div>
+                            </div>
+                            <div class="party-description" id="primaryPartyDescription">
+                                상세 설명이 여기에 표시됩니다.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Detailed Analysis -->
+                <section class="detailed-analysis">
+                    <h3>정책 영역별 분석</h3>
+                    <div class="policy-areas" id="policyAreas">
+                        <!-- Policy area analysis will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- All Parties Comparison -->
+                <section class="all-parties">
+                    <h3>전체 정당별 일치도</h3>
+                    <div class="parties-grid" id="partiesGrid">
+                        <!-- All party results will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Google Ads - Middle Banner (결과 중간 섹션) -->
+                <div class="ad-container ad-middle">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8881525957265363"
+                         data-ad-slot="3333333333"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <!-- Key Policy Positions -->
+                <section class="key-positions">
+                    <h3>주요 정책 입장 분석</h3>
+                    <div class="positions-grid" id="keyPositions">
+                        <!-- Key positions will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Share Results -->
+                <section class="share-results">
+                    <h3>결과 공유하기</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn twitter" onclick="shareToTwitter()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                            트위터
+                        </button>
+                        <button class="share-btn facebook" onclick="shareToFacebook()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                            </svg>
+                            페이스북
+                        </button>
+                        <button class="share-btn kakao" onclick="shareToKakao()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 5.58 2 10c0 2.89 1.91 5.45 4.84 7.07-.21-.79-.4-2.01.09-2.89.44-.79 2.86-12.14 2.86-12.14s-.73-.15-.73-1.75c0-1.64.95-2.87 2.13-2.87 1.01 0 1.49.76 1.49 1.67 0 1.02-.65 2.54-.98 3.95-.28 1.18.59 2.14 1.76 2.14 2.11 0 3.74-2.23 3.74-5.44 0-2.85-2.05-4.84-4.97-4.84-3.39 0-5.38 2.54-5.38 5.17 0 1.02.39 2.12.88 2.72.1.12.11.22.08.34-.09.38-.29 1.2-.33 1.37-.05.22-.18.27-.42.16-1.48-.69-2.41-2.85-2.41-4.58 0-3.75 2.73-7.19 7.86-7.19 4.13 0 7.34 2.94 7.34 6.87 0 4.1-2.58 7.4-6.17 7.4-1.21 0-2.34-.63-2.73-1.38l-.74 2.82c-.27 1.04-1 2.34-1.49 3.13C9.84 21.62 10.88 22 12 22c5.52 0 10-3.58 10-8S17.52 2 12 2z"/>
+                            </svg>
+                            카카오톡
+                        </button>
+                        <button class="share-btn link" onclick="copyLink()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                            </svg>
+                            링크 복사
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn secondary" onclick="retakeTest()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 019-9 9.75 9.75 0 016.74 2.74L21 8"/>
+                        <path d="M21 3v5h-5"/>
+                        <path d="M21 12a9 9 0 01-9 9 9.75 9.75 0 01-6.74-2.74L3 16"/>
+                        <path d="M3 21v-5h5"/>
+                    </svg>
+                    다시 테스트하기
+                </button>
+                <button class="action-btn primary" onclick="goHome()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9,22 9,12 15,12 15,22"/>
+                    </svg>
+                    홈으로 돌아가기
+                </button>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-box">
+                <h4>⚠️ 중요 안내사항</h4>
+                <p>본 진단 결과는 정책 선호도를 바탕으로 한 참고 자료일 뿐이며, 실제 투표 결정시에는 더 많은 요소들을 종합적으로 고려하시기 바랍니다. 정당의 실제 정책과 공약은 변동될 수 있으므로, 최신 정보를 확인하시기 바랍니다.</p>
+            </div>
+            
+            <!-- Google Ads - Bottom Banner (결과 페이지 하단) -->
+            <div class="ad-container ad-bottom">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8881525957265363"
+                     data-ad-slot="4444444444"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 블라인드 정책 선호 확인지. 정치적 중립을 지향합니다.</p>
+            <p>문의: assessment@qhop.org</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/results.js"></script>
+</body>
+</html>

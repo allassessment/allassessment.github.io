@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블라인드 정책 선호 확인지 - 정치 성향 진단</title>
+    <meta name="description" content="정치 성향은 정책으로 이루어져야 합니다. 블라인드 정책 질문을 통해 당신의 정치적 선호를 확인해보세요.">
+    <meta name="keywords" content="정치성향, 정책선호, 정당진단, 한국정치, 정치테스트">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8881525957265363" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="main-title">블라인드 정책 선호 확인지</h1>
+            <p class="subtitle">정치 성향은 사상이나 호불호보다는 정책으로 이루어져야 합니다</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="intro-section">
+                <div class="slogan-box">
+                    <h2>정치 성향은 정책 성향이다</h2>
+                    <p>블라인드로 제시되는 여러가지 정책들의 찬반을 선택함으로서<br>
+                    현재 나에게 필요한 정치색을 선택해 보자</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>30개 정책 질문</h3>
+                        <p>2024-2025년 주요 정책 이슈들을 바탕으로 한 객관적 질문</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>5개 주요 정당 분석</h3>
+                        <p>국민의힘, 더불어민주당, 개혁신당, 조국신당, 진보당</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>블라인드 테스트</h3>
+                        <p>정당명 없이 순수한 정책 선호도만으로 판단</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Google Ads - Top Banner (메인 콘텐츠 후, 테스트 시작 전) -->
+            <div class="ad-container ad-top">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8881525957265363"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <section class="test-info">
+                <div class="info-box">
+                    <h3>📋 테스트 정보</h3>
+                    <ul>
+                        <li><strong>소요 시간:</strong> 약 5-7분</li>
+                        <li><strong>질문 수:</strong> 30개</li>
+                        <li><strong>답변 방식:</strong> 찬성/반대 선택</li>
+                        <li><strong>결과:</strong> 정당별 일치도 및 상세 분석</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="start-section">
+                <button class="start-btn" onclick="startSurvey()">
+                    <span>테스트 시작하기</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <p class="disclaimer">* 본 테스트는 정치적 참고 목적으로만 사용되며, 실제 투표 결정의 유일한 기준이 되어서는 안 됩니다.</p>
+            </div>
+
+            <!-- Google Ads - Bottom Banner (페이지 하단) -->
+            <div class="ad-container ad-bottom">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8881525957265363"
+                     data-ad-slot="0987654321"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 블라인드 정책 선호 확인지. 정치적 중립을 지향합니다.</p>
+            <p>문의: assessment@qhop.org</p>
+        </div>
+    </footer>
+
+    <script>
+        function startSurvey() {
+            // Clear any existing survey data
+            localStorage.removeItem('surveyAnswers');
+            localStorage.removeItem('surveyStartTime');
+            localStorage.setItem('surveyStartTime', Date.now());
+            window.location.href = 'survey.html';
+        }
+    </script>
+</body>
+</html>
