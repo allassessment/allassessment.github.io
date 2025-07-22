@@ -46,6 +46,18 @@ body {
 .nav-menu {
   display: flex;
   gap: 1.2rem;
+  align-items: center;
+}
+.language-selector-nav {
+  margin-left: 1rem;
+}
+.language-selector-nav select {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
 }
 .nav-link {
   color: #fff;
