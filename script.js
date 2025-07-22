@@ -20,7 +20,18 @@ const translations = {
         aboutDescription: '우리는 개인의 성격, 성향, 가치관을 더 깊이 이해할 수 있도록 돕는 온라인 종합진단 플랫폼입니다.',
         startNow: '지금 바로 시작해보세요!',
         startDescription: '나를 더 잘 이해하는 첫걸음, 종합진단 테스트로 시작하세요.',
-        freeTestStart: '무료 테스트 시작'
+        freeTestStart: '무료 테스트 시작',
+        // Feature cards
+        accurateAnalysis: '정확한 분석',
+        accurateDesc: '심리학적 이론을 바탕으로 한 정확하고 신뢰할 수 있는 진단 결과',
+        mobileOptimized: '모바일 최적화',
+        mobileDesc: '언제 어디서나 편리하게 이용할 수 있는 반응형 웹 디자인',
+        multiLanguage: '다국어 지원',
+        multiLanguageDesc: '한국어, 영어, 일본어, 중국어, 러시아어 등 5개 언어로 진단 가능',
+        funExperience: '재미있는 경험',
+        funDesc: '지루하지 않고 흥미진진한 테스트로 즐거운 자기탐구 시간',
+        privacyProtection: '개인정보 보호',
+        privacyDesc: '개인정보 수집 없이 안전하게 이용할 수 있는 익명 테스트'
     },
     en: {
         siteTitle: 'Total Diagnosis Center',
@@ -37,7 +48,18 @@ const translations = {
         aboutDescription: 'We are an online comprehensive diagnostic platform that helps you understand your personality, tendencies, and values more deeply.',
         startNow: 'Start right now!',
         startDescription: 'The first step to understanding yourself better, start with comprehensive diagnostic tests.',
-        freeTestStart: 'Start Free Test'
+        freeTestStart: 'Start Free Test',
+        // Feature cards
+        accurateAnalysis: 'Accurate Analysis',
+        accurateDesc: 'Reliable diagnostic results based on psychological theories',
+        mobileOptimized: 'Mobile Optimized',
+        mobileDesc: 'Responsive web design for convenient use anytime, anywhere',
+        multiLanguage: 'Multi-language Support',
+        multiLanguageDesc: 'Available in 5 languages: Korean, English, Japanese, Chinese, Russian',
+        funExperience: 'Fun Experience',
+        funDesc: 'Enjoyable self-exploration time with engaging and interesting tests',
+        privacyProtection: 'Privacy Protection',
+        privacyDesc: 'Safe anonymous tests without personal information collection'
     },
     ja: {
         siteTitle: '総合診断センター',
@@ -121,6 +143,25 @@ function updatePageLanguage() {
     
     const whyChooseDesc = document.querySelector('.features .section-header p');
     if (whyChooseDesc) whyChooseDesc.textContent = t.scientificBasis;
+    
+    // Feature cards 업데이트
+    const featureCards = document.querySelectorAll('.feature-card');
+    if (featureCards.length >= 5) {
+        featureCards[0].querySelector('h3').textContent = t.accurateAnalysis;
+        featureCards[0].querySelector('p').textContent = t.accurateDesc;
+        
+        featureCards[1].querySelector('h3').textContent = t.mobileOptimized;
+        featureCards[1].querySelector('p').textContent = t.mobileDesc;
+        
+        featureCards[2].querySelector('h3').textContent = t.multiLanguage;
+        featureCards[2].querySelector('p').textContent = t.multiLanguageDesc;
+        
+        featureCards[3].querySelector('h3').textContent = t.funExperience;
+        featureCards[3].querySelector('p').textContent = t.funDesc;
+        
+        featureCards[4].querySelector('h3').textContent = t.privacyProtection;
+        featureCards[4].querySelector('p').textContent = t.privacyDesc;
+    }
     
     const testsTitle = document.querySelector('.tests .section-header h2');
     if (testsTitle) testsTitle.textContent = t.popularTests;
