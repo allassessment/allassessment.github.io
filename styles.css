@@ -52,12 +52,21 @@ body {
   margin-left: 1rem;
 }
 .language-selector-nav select {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
+  background: rgba(255,255,255,0.9);
+  color: #333;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 8px;
   padding: 0.4rem 0.8rem;
   font-size: 0.9rem;
+  cursor: pointer;
+}
+.language-selector-nav select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+.language-selector-nav select option {
+  background: #fff;
+  color: #333;
 }
 .nav-link {
   color: #fff;
