@@ -86,18 +86,44 @@ function displayQuestion(questionIndex) {
     // Display answer options
     const answersContainer = document.getElementById('answersContainer');
     answersContainer.innerHTML = questionData.answers.map((answer, index) => `
-        <div class="answer-option" data-answer="${index}" onclick="selectAnswer(${index})">
+        <div class="answer-option" data-answer="${index}">
             <div class="answer-letter">${String.fromCharCode(65 + index)}</div>
             <span>${answer.text}</span>
         </div>
     `).join('');
+    
+    // Add event listeners for each answer option
+    document.querySelectorAll('.answer-option').forEach((option, index) => {
+        // Re-enable pointer events for new question
+        option.style.pointerEvents = 'auto';
+        
+        // Add click event listener
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            selectAnswer(index);
+        });
+        
+        // Add touch event listener for better mobile support
+        option.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            selectAnswer(index);
+        });
+    });
 }
 
 // Select an answer
 function selectAnswer(answerIndex) {
+    // Prevent multiple selections
+    if (document.querySelector('.answer-option.selected')) {
+        return;
+    }
+    
     // Remove previous selection
     document.querySelectorAll('.answer-option').forEach(option => {
         option.classList.remove('selected');
+        option.style.pointerEvents = 'none'; // Disable further clicks
     });
     
     // Mark selected answer
