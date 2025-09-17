@@ -1386,24 +1386,11 @@ function showResult() {
     // Update result UI
     updateResultUI(team, t, matchPercentage);
     
-    // Create detailed analysis
-    createDetailedAnalysis(team, t);
+    // Create team info section
+    createTeamInfoSection(team, t);
     
-    // Show player recommendations
-    showPlayerRecommendations(selectedTeam, t);
-    
-    // Create radar chart with current language
-    createRadarChart(team.attributes, currentLanguage);
-    
-    // Show team stats
-    showTeamStats(team);
-    
-    // Show similar and rival teams
-    showSimilarTeams(selectedTeam, t);
-    showRivalTeams(selectedTeam, t);
-    
-    // Show fun facts
-    showFunFacts(selectedTeam, t);
+    // Create why this team section
+    createWhyThisTeamSection(team, t);
     
     // Add animation
     document.getElementById('resultSection').classList.add('slide-up');
@@ -1423,6 +1410,186 @@ function updateResultUI(team, t, matchPercentage) {
     
     // Update all the new elements
     updateNewElementTexts(t);
+}
+
+// Create team info section
+function createTeamInfoSection(team, t) {
+    const teamInfoTexts = {
+        ko: {
+            teamInfoTitle: "팀에 대해 더 알아보기",
+            historyTitle: "역사와 전통",
+            playingStyleTitle: "경기 스타일", 
+            fanCultureTitle: "팬 문화"
+        },
+        en: {
+            teamInfoTitle: "Learn More About The Team",
+            historyTitle: "History & Tradition",
+            playingStyleTitle: "Playing Style",
+            fanCultureTitle: "Fan Culture"
+        },
+        zh: {
+            teamInfoTitle: "了解更多关于球队",
+            historyTitle: "历史与传统",
+            playingStyleTitle: "比赛风格",
+            fanCultureTitle: "球迷文化"
+        },
+        ja: {
+            teamInfoTitle: "チームについてもっと知る",
+            historyTitle: "歴史と伝統",
+            playingStyleTitle: "プレースタイル",
+            fanCultureTitle: "ファン文化"
+        },
+        th: {
+            teamInfoTitle: "เรียนรู้เพิ่มเติมเกี่ยวกับทีม",
+            historyTitle: "ประวัติและประเพณี",
+            playingStyleTitle: "รูปแบบการเล่น",
+            fanCultureTitle: "วัฒนธรรมแฟนบอล"
+        }
+    };
+
+    const texts = teamInfoTexts[currentLanguage] || teamInfoTexts.ko;
+    
+    document.getElementById('teamInfoTitle').textContent = texts.teamInfoTitle;
+    document.getElementById('historyTitle').textContent = texts.historyTitle;
+    document.getElementById('playingStyleTitle').textContent = texts.playingStyleTitle;
+    document.getElementById('fanCultureTitle').textContent = texts.fanCultureTitle;
+    
+    // Add team-specific content based on team
+    const teamSpecificInfo = getTeamSpecificInfo(team, currentLanguage);
+    document.getElementById('historyDesc').textContent = teamSpecificInfo.history;
+    document.getElementById('playingStyleDesc').textContent = teamSpecificInfo.playingStyle;
+    document.getElementById('fanCultureDesc').textContent = teamSpecificInfo.fanCulture;
+}
+
+// Create why this team section
+function createWhyThisTeamSection(team, t) {
+    const whyTeamTexts = {
+        ko: {
+            whyTeamTitle: "왜 이 팀이 나와 잘 맞을까요?",
+            reason1Title: "성향 매칭",
+            reason1Desc: "당신의 답변을 분석한 결과, 이 팀의 철학과 가장 잘 맞습니다.",
+            reason2Title: "스타일 적합성", 
+            reason2Desc: "당신이 선호하는 축구 스타일과 이 팀의 플레이 방식이 일치합니다.",
+            reason3Title: "팬 문화",
+            reason3Desc: "이 팀의 팬 문화와 당신의 성격이 잘 어울립니다."
+        },
+        en: {
+            whyTeamTitle: "Why This Team Matches You?",
+            reason1Title: "Personality Match",
+            reason1Desc: "Based on your answers, this team's philosophy matches you best.",
+            reason2Title: "Style Compatibility",
+            reason2Desc: "Your preferred football style aligns with this team's playing approach.",
+            reason3Title: "Fan Culture",
+            reason3Desc: "This team's fan culture suits your personality well."
+        },
+        zh: {
+            whyTeamTitle: "为什么这支球队适合你？",
+            reason1Title: "性格匹配",
+            reason1Desc: "根据您的回答分析，这支球队的理念最符合您。",
+            reason2Title: "风格兼容性",
+            reason2Desc: "您偏好的足球风格与这支球队的比赛方式一致。",
+            reason3Title: "球迷文化",
+            reason3Desc: "这支球队的球迷文化很适合您的性格。"
+        },
+        ja: {
+            whyTeamTitle: "なぜこのチームがあなたに合うのか？",
+            reason1Title: "性格マッチ",
+            reason1Desc: "あなたの回答を分析した結果、このチームの哲学が最も合っています。",
+            reason2Title: "スタイル適合性",
+            reason2Desc: "あなたが好むサッカースタイルとこのチームのプレー方式が一致します。",
+            reason3Title: "ファン文化",
+            reason3Desc: "このチームのファン文化があなたの性格によく合います。"
+        },
+        th: {
+            whyTeamTitle: "ทำไมทีมนี้เหมาะกับคุณ？",
+            reason1Title: "การจับคู่บุคลิกภาพ",
+            reason1Desc: "จากการวิเคราะห์คำตอบของคุณ ปรัชญาของทีมนี้เข้ากับคุณมากที่สุด",
+            reason2Title: "ความเข้ากันได้ของสไตล์",
+            reason2Desc: "สไตล์ฟุตบอลที่คุณชอบสอดคล้องกับวิธีการเล่นของทีมนี้",
+            reason3Title: "วัฒนธรรมแฟนบอล",
+            reason3Desc: "วัฒนธรรมแฟนบอลของทีมนี้เหมาะกับบุคลิกภาพของคุณ"
+        }
+    };
+
+    const texts = whyTeamTexts[currentLanguage] || whyTeamTexts.ko;
+    
+    document.getElementById('whyTeamTitle').textContent = texts.whyTeamTitle;
+    document.getElementById('reason1Title').textContent = texts.reason1Title;
+    document.getElementById('reason1Desc').textContent = texts.reason1Desc;
+    document.getElementById('reason2Title').textContent = texts.reason2Title;
+    document.getElementById('reason2Desc').textContent = texts.reason2Desc;
+    document.getElementById('reason3Title').textContent = texts.reason3Title;
+    document.getElementById('reason3Desc').textContent = texts.reason3Desc;
+}
+
+// Get team-specific information
+function getTeamSpecificInfo(team, language) {
+    const teamInfo = {
+        man_city: {
+            ko: {
+                history: "2008년 아부다비 유나이티드 그룹 인수 후 현대 축구의 새로운 강자로 부상했습니다. 혁신적인 시설과 전술로 유명합니다.",
+                playingStyle: "펩 과르디올라의 철학이 담긴 점유율 기반 티키타카와 빠른 패스 플레이가 특징입니다.",
+                fanCulture: "전통적인 맨체스터 지역 팬들과 새로운 글로벌 팬들이 조화를 이루며 열정적인 응원을 보여줍니다."
+            },
+            en: {
+                history: "Emerged as a modern football powerhouse after the 2008 acquisition by Abu Dhabi United Group, known for innovative facilities and tactics.",
+                playingStyle: "Features possession-based tiki-taka and quick passing play embodying Pep Guardiola's philosophy.",
+                fanCulture: "Traditional local Manchester fans and new global supporters come together in passionate support."
+            }
+        },
+        liverpool: {
+            ko: {
+                history: "1892년 창단된 잉글랜드 축구의 명문 클럽으로, 'You'll Never Walk Alone' 정신으로 유명합니다.",
+                playingStyle: "클롭의 게겐프레싱과 강도 높은 압박, 빠른 역습이 특징인 역동적인 축구를 구사합니다.",
+                fanCulture: "안필드의 Kop 스탠드는 세계에서 가장 열정적인 축구 응원 문화를 자랑합니다."
+            },
+            en: {
+                history: "Founded in 1892, a prestigious English football club famous for the 'You'll Never Walk Alone' spirit.",
+                playingStyle: "Features dynamic football with Klopp's gegenpressing, high-intensity pressing, and quick counter-attacks.",
+                fanCulture: "Anfield's Kop stand boasts the most passionate football support culture in the world."
+            }
+        },
+        arsenal: {
+            ko: {
+                history: "1886년 창단된 북런던의 명문으로, '아름다운 축구'의 대명사입니다. 하이버리에서 에미레이츠로 이전하며 새로운 역사를 써가고 있습니다.",
+                playingStyle: "기술적이고 창의적인 패싱 게임과 젊은 선수들의 에너지가 결합된 현대적인 축구를 추구합니다.",
+                fanCulture: "지적이고 축구에 대한 이해도가 높은 팬들로 유명하며, 팀의 철학을 중시하는 문화를 가지고 있습니다."
+            },
+            en: {
+                history: "Founded in 1886, a prestigious North London club synonymous with 'beautiful football', writing new history since moving from Highbury to Emirates.",
+                playingStyle: "Pursues modern football combining technical and creative passing games with young players' energy.",
+                fanCulture: "Famous for intelligent fans with high football understanding, having a culture that values the team's philosophy."
+            }
+        },
+        man_united: {
+            ko: {
+                history: "1878년 창단된 잉글랜드 축구의 전설적인 클럽으로, 알렉스 퍼거슨 시대의 영광을 되찾기 위해 노력하고 있습니다.",
+                playingStyle: "전통적인 윙 플레이와 공격적인 축구를 바탕으로 하되, 현대적인 전술 요소를 접목하려 시도하고 있습니다.",
+                fanCulture: "전 세계에서 가장 큰 팬베이스를 보유하고 있으며, '레드 데빌스'라는 별명처럼 열정적이고 충성도 높은 팬 문화를 자랑합니다."
+            },
+            en: {
+                history: "Founded in 1878, a legendary English football club working to regain the glory of the Alex Ferguson era.",
+                playingStyle: "Based on traditional wing play and attacking football, attempting to incorporate modern tactical elements.",
+                fanCulture: "Boasts the largest fanbase worldwide and passionate, loyal fan culture befitting the 'Red Devils' nickname."
+            }
+        }
+    };
+
+    const defaultInfo = {
+        ko: {
+            history: "이 팀은 프리미어리그의 독특한 역사와 전통을 가지고 있습니다.",
+            playingStyle: "현대 축구의 트렌드를 반영한 전술적 접근을 보여줍니다.",
+            fanCulture: "열정적이고 충성도 높은 팬들이 팀을 뒷받침하고 있습니다."
+        },
+        en: {
+            history: "This team has a unique history and tradition in the Premier League.",
+            playingStyle: "Shows tactical approach reflecting modern football trends.",
+            fanCulture: "Passionate and loyal fans support the team."
+        }
+    };
+
+    const teamKey = Object.keys(teams).find(key => teams[key] === team);
+    return teamInfo[teamKey]?.[language] || teamInfo[teamKey]?.ko || defaultInfo[language] || defaultInfo.ko;
 }
 
 // Update new element texts
